@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Littlest Pet Shop Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container select, .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .entry-list {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .entry {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Littlest Pet Shop Collection</h1>
+    <div class="form-container">
+        <h2>Add a New Pet</h2>
+        <form id="lpsForm">
+            <label for="type">Type</label>
+            <select id="type" name="type">
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Bird">Bird</option>
+                <option value="Fish">Fish</option>
+                <option value="Horse">Horse</option>
+                <option value="Bunny">Bunny</option>
+                <option value="Reptile">Reptile</option>
+                <option value="Rodent">Rodent</option>
+                <option value="Insect">Insect</option>
+                <option value="Exotic">Exotic</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="collection">Collection/Series</label>
+            <select id="collection" name="collection">
+                <option value="Original (2004-2008)">Original (2004-2008)</option>
+                <option value="G2 (2008-2012)">G2 (2008-2012)</option>
+                <option value="G3 (2013-2015)">G3 (2013-2015)</option>
+                <option value="G4+ (2015+)">G4+ (2015+)</option>
+                <option value="Exclusive">Exclusive</option>
+                <option value="Blind Bag">Blind Bag</option>
+                <option value="Playset">Playset</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+
+            <label for="color">Color (Main)</label>
+            <select id="color" name="color">
+                <option value="White">White</option>
+                <option value="Black">Black</option>
+                <option value="Gray">Gray</option>
+                <option value="Brown">Brown</option>
+                <option value="Tan">Tan</option>
+                <option value="Orange">Orange</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Purple">Purple</option>
+                <option value="Pink">Pink</option>
+                <option value="Red">Red</option>
+                <option value="Multicolor">Multicolor</option>
+            </select>
+
+            <label for="condition">Condition</label>
+            <select id="condition" name="condition">
+                <option value="Mint">Mint</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+                <option value="Custom/Modified">Custom/Modified</option>
+            </select>
+
+            <button type="submit">Add Pet</button>
+        </form>
+    </div>
+
+    <div class="entry-list" id="entryList">
+        <h2>Collection Entries</h2>
+    </div>
+
+    <script>
+        // Listen for form submission
+        document.getElementById('lpsForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form from reloading the page
+
+            // Get form values
+            const type = document.getElementById('type').value;
+            const collection = document.getElementById('collection').value;
+            const color = document.getElementById('color').value;
+            const condition = document.getElementById('condition').value;
+
+            // Create a new entry
+            const entry = document.createElement('div');
+            entry.classList.add('entry');
+            entry.innerHTML = `
+                <strong>Type:</strong> ${type} <br>
+                <strong>Collection:</strong> ${collection} <br>
+                <strong>Color:</strong> ${color} <br>
+                <strong>Condition:</strong> ${condition} <br>
+            `;
+
+            // Append entry to the list
+            document.getElementById('entryList').appendChild(entry);
+
+            // Reset form
+            document.getElementById('lpsForm').reset();
+        });
+    </script>
+
+</body>
+</html>
