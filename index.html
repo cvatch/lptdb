@@ -58,6 +58,7 @@
     <div class="form-container">
         <h2>Add a New Pet</h2>
         <form id="lpsForm">
+            <!-- Type -->
             <label for="type">Type</label>
             <select id="type" name="type">
                 <option value="Cat">Cat</option>
@@ -73,6 +74,7 @@
                 <option value="Other">Other</option>
             </select>
 
+            <!-- Collection/Series -->
             <label for="collection">Collection/Series</label>
             <select id="collection" name="collection">
                 <option value="Original (2004-2008)">Original (2004-2008)</option>
@@ -85,6 +87,7 @@
                 <option value="Unknown">Unknown</option>
             </select>
 
+            <!-- Color (Main) -->
             <label for="color">Color (Main)</label>
             <select id="color" name="color">
                 <option value="White">White</option>
@@ -102,6 +105,62 @@
                 <option value="Multicolor">Multicolor</option>
             </select>
 
+            <!-- Color (Secondary) -->
+            <label for="secondaryColor">Color (Secondary)</label>
+            <select id="secondaryColor" name="secondaryColor">
+                <option value="White">White</option>
+                <option value="Black">Black</option>
+                <option value="Gray">Gray</option>
+                <option value="Brown">Brown</option>
+                <option value="Tan">Tan</option>
+                <option value="Orange">Orange</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Purple">Purple</option>
+                <option value="Pink">Pink</option>
+                <option value="Red">Red</option>
+                <option value="Multicolor">Multicolor</option>
+            </select>
+
+            <!-- Eye Style -->
+            <label for="eyeStyle">Eye Style</label>
+            <select id="eyeStyle" name="eyeStyle">
+                <option value="Normal">Normal</option>
+                <option value="Glitter">Glitter</option>
+                <option value="Rainbow">Rainbow</option>
+                <option value="Starry">Starry</option>
+                <option value="Half-Lidded">Half-Lidded</option>
+                <option value="Heart-shaped">Heart-shaped</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Pose/Position -->
+            <label for="pose">Pose/Position</label>
+            <select id="pose" name="pose">
+                <option value="Sitting">Sitting</option>
+                <option value="Standing">Standing</option>
+                <option value="Lying Down">Lying Down</option>
+                <option value="Leaping">Leaping</option>
+                <option value="Tilting Head">Tilting Head</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Accessories -->
+            <label for="accessories">Accessories</label>
+            <select id="accessories" name="accessories">
+                <option value="None">None</option>
+                <option value="Hat">Hat</option>
+                <option value="Glasses">Glasses</option>
+                <option value="Scarf">Scarf</option>
+                <option value="Bow">Bow</option>
+                <option value="Collar">Collar</option>
+                <option value="Bag">Bag</option>
+                <option value="Food/Drink Items">Food/Drink Items</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Condition -->
             <label for="condition">Condition</label>
             <select id="condition" name="condition">
                 <option value="Mint">Mint</option>
@@ -109,6 +168,51 @@
                 <option value="Fair">Fair</option>
                 <option value="Poor">Poor</option>
                 <option value="Custom/Modified">Custom/Modified</option>
+            </select>
+
+            <!-- Special Features -->
+            <label for="specialFeatures">Special Features</label>
+            <select id="specialFeatures" name="specialFeatures">
+                <option value="Glitter">Glitter</option>
+                <option value="Flocked">Flocked</option>
+                <option value="Metallic">Metallic</option>
+                <option value="Glow-in-the-Dark">Glow-in-the-Dark</option>
+                <option value="Transparent">Transparent</option>
+                <option value="Scented">Scented</option>
+                <option value="Bobblehead">Bobblehead</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Origin -->
+            <label for="origin">Origin</label>
+            <select id="origin" name="origin">
+                <option value="Purchased (Store)">Purchased (Store)</option>
+                <option value="Purchased (Online)">Purchased (Online)</option>
+                <option value="Gift">Gift</option>
+                <option value="Thrifted">Thrifted</option>
+                <option value="Traded">Traded</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+
+            <!-- Playset/Theme -->
+            <label for="playset">Playset/Theme</label>
+            <select id="playset" name="playset">
+                <option value="None">None</option>
+                <option value="Beach/Sea">Beach/Sea</option>
+                <option value="Garden">Garden</option>
+                <option value="City">City</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Circus">Circus</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Favorite Status -->
+            <label for="favoriteStatus">Favorite Status</label>
+            <select id="favoriteStatus" name="favoriteStatus">
+                <option value="Favorite">Favorite</option>
+                <option value="Regular">Regular</option>
+                <option value="Backup/Extra">Backup/Extra</option>
             </select>
 
             <button type="submit">Add Pet</button>
@@ -128,7 +232,15 @@
             const type = document.getElementById('type').value;
             const collection = document.getElementById('collection').value;
             const color = document.getElementById('color').value;
+            const secondaryColor = document.getElementById('secondaryColor').value;
+            const eyeStyle = document.getElementById('eyeStyle').value;
+            const pose = document.getElementById('pose').value;
+            const accessories = document.getElementById('accessories').value;
             const condition = document.getElementById('condition').value;
+            const specialFeatures = document.getElementById('specialFeatures').value;
+            const origin = document.getElementById('origin').value;
+            const playset = document.getElementById('playset').value;
+            const favoriteStatus = document.getElementById('favoriteStatus').value;
 
             // Create a new entry
             const entry = document.createElement('div');
@@ -136,8 +248,16 @@
             entry.innerHTML = `
                 <strong>Type:</strong> ${type} <br>
                 <strong>Collection:</strong> ${collection} <br>
-                <strong>Color:</strong> ${color} <br>
+                <strong>Color (Main):</strong> ${color} <br>
+                <strong>Color (Secondary):</strong> ${secondaryColor} <br>
+                <strong>Eye Style:</strong> ${eyeStyle} <br>
+                <strong>Pose/Position:</strong> ${pose} <br>
+                <strong>Accessories:</strong> ${accessories} <br>
                 <strong>Condition:</strong> ${condition} <br>
+                <strong>Special Features:</strong> ${specialFeatures} <br>
+                <strong>Origin:</strong> ${origin} <br>
+                <strong>Playset/Theme:</strong> ${playset} <br>
+                <strong>Favorite Status:</strong> ${favoriteStatus} <br>
             `;
 
             // Append entry to the list
